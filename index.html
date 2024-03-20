@@ -28,23 +28,86 @@
     </style>
   </head>
   <body>
-    Learn to code by watching others See how experienced developers solve
-    problems in real-time. Watching scripted tutorials is great, but
-    understanding how developers think is invaluable. Try it free 7 days then
-    $20/mo. thereafter First Name Last Name Email Address Password Claim your
-    free trial By clicking the button, you are agreeing to our Terms and
-    Services
+    <main>
+      <div class="container">
+        <div class="content">
+          <h2>Learn to Code by watching others</h2>
+          <p>
+            See how experienced developers solve problems in real-time. Watching
+            scripted tutorials is great, but understanding how developers think
+            is invaluable.
+          </p>
+        </div>
 
-    <footer>
-      <p class="attribution">
-        Challenge by
-        <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">
-          Frontend Mentor
-        </a>
-        . Coded by
-        <a href="#">Your Name Here</a>
-        .
-      </p>
-    </footer>
+        <div class="form-div">
+          <button class="trial" id="trial">
+            <span class="bold">Try it free 7</span>
+            days then $20/mo. thereafter
+          </button>
+          <form action="/form-url" method="post">
+            <div id="fname">
+              <label for="firstname"></label>
+              <input
+                type="text"
+                id="firstname"
+                name="firstname"
+                required
+                placeholder="John"
+              />
+            </div>
+            <div class="lname">
+              <label for="lastname"></label>
+              <input
+                type="text"
+                id="lastname"
+                name="lastname"
+                required
+                placeholder="Smith"
+              />
+            </div>
+            <div class="mail">
+              <label for="email"></label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                required
+                placeholder="example@gmail.com"
+              />
+            </div>
+            <div class="pass">
+              <label for="password"></label>
+              <input
+                type="password"
+                id="password"
+                name="password"
+                pattern=".{8,}"
+                title="Must contain at least 8 or more characters"
+                required
+                placeholder="(8 characters min.)"
+              />
+            </div>
+            <div class="submit">
+              <button type="submit">CLAIM YOUR FREE TRIAL</button>
+              <p class="footnote" id="foot">
+                By clicking the button, you are agreeing to our
+                <span>Terms and Services</span>
+              </p>
+            </div>
+          </form>
+        </div>
+      </div>
+      <footer>
+        <p class="attribution">
+          Challenge by
+          <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">
+            Frontend Mentor
+          </a>
+          . Coded by
+          <a href="#">Your Name Here</a>
+          .
+        </p>
+      </footer>
+    </main>
   </body>
 </html>

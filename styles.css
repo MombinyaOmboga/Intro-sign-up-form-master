@@ -1,1 +1,91 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap')
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+*{
+    box-sizing: content-box;
+}
+
+body{
+    background: url(./images/bg-intro-desktop.png);
+    background-color:  hsl(0, 100%, 74%);
+    font-size: small;
+    color: #3c3b3f;
+    margin: 0;
+    padding: 0 60px 0 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh
+}
+
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1px;
+}
+
+.content h2{
+    font-size: 38px;
+}
+
+.content{
+    color: #fff;
+    width: 95%;
+    padding: 0 20px 0 20px;
+}
+
+.trial{
+    padding: 8px;
+    background-color: hsl(248, 32%, 49%);
+    border-radius: 5px;
+    border: none;
+    width: 375px;
+    margin-bottom: 10px;
+    color: #fff;
+    font-weight: 100;
+}
+
+form{
+    width: 350px;
+    height: 300px;
+    background-color: #fff3f3;
+    border-radius: 5px;
+    padding: 20px;
+}
+
+input{
+
+    width: 90%;
+    padding: 7px;
+    margin: 8px;
+    border-radius: 3px;
+    border: 1px solid hsl(246, 25%, 77%);
+}
+
+.submit
+{
+    margin: 8px;
+}
+
+.submit button{
+    padding: 10px;
+    background-color: hsl(154, 59%, 51%);
+    width: 310px;
+    border: none;
+    border-radius: 3px;
+    color: #fff;
+    box-shadow: 2px 2px 2px hsl(153, 10%, 44%);
+}
+
+.submit p{
+    font-size: 10px;
+    padding-top: 5px;
+}
+span{
+    color: hsl(0, 100%, 74%) ;
+}
+
+.bold{
+    font-weight: 700;
+    color: #fff;
+}
