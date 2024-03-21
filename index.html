@@ -40,20 +40,21 @@
         </div>
 
         <div class="form-div">
-          <button class="trial" id="trial">
+          <button class="trial" id="trial" type="button">
             <span class="bold">Try it free 7</span>
             days then $20/mo. thereafter
           </button>
-          <form action="/form-url" method="post">
-            <div id="fname">
+          <form action="/form-url" method="post" id="signup-form">
+            <div class="fname">
               <label for="firstname"></label>
               <input
                 type="text"
                 id="firstname"
                 name="firstname"
-                required
+                class="invalid"
                 placeholder="John"
               />
+              <span class="error-message" id="fname-error"></span>
             </div>
             <div class="lname">
               <label for="lastname"></label>
@@ -61,19 +62,15 @@
                 type="text"
                 id="lastname"
                 name="lastname"
-                required
+                class="invalid"
                 placeholder="Smith"
               />
+              <span class="error-message" id="lname-error"></span>
             </div>
             <div class="mail">
               <label for="email"></label>
-              <input
-                type="email"
-                id="email"
-                name="email"
-                required
-                placeholder="example@gmail.com"
-              />
+              <input type="email" id="email" name="email" class="invalid" />
+              <span class="error-message" id="email-error"></span>
             </div>
             <div class="pass">
               <label for="password"></label>
@@ -81,17 +78,19 @@
                 type="password"
                 id="password"
                 name="password"
-                pattern=".{8,}"
                 title="Must contain at least 8 or more characters"
-                required
-                placeholder="(8 characters min.)"
+                class="invalid"
+                placeholder="Password must be 8 or more characters"
               />
+              <span class="error-message" id="password-error"></span>
             </div>
             <div class="submit">
               <button type="submit">CLAIM YOUR FREE TRIAL</button>
               <p class="footnote" id="foot">
                 By clicking the button, you are agreeing to our
-                <span>Terms and Services</span>
+                <a href="https://www.example.com" target="_blank">
+                  Terms and Services
+                </a>
               </p>
             </div>
           </form>
@@ -109,5 +108,73 @@
         </p>
       </footer>
     </main>
+    <script>
+      document
+        .getElementById('signup-form')
+        .addEventListener('submit', function (event) {
+          event.preventDefault() // prevent form from submitting normally
+
+          //reset error messages
+          document.getElementById('fname-error').textContent = ''
+          document.getElementById('firstname').classList.remove('invalid')
+          document.getElementById('lname-error').textContent = ''
+          document.getElementById('lastname').classList.remove('invalid')
+          document.getElementById('email-error').textContent = ''
+          document.getElementById('email').classList.remove('invalid')
+          document.getElementById('password-error').textContent = ''
+          document.getElementById('password').classList.remove('invalid')
+
+          //fetch form inputs
+          var firstName = document.getElementById('firstname').value
+          var lastName = document.getElementById('lastname').value
+          var email = document.getElementById('email').value
+          var password = document.getElementById('password').value
+
+          //Form Validation
+          if (firstName.trim() === '') {
+            document.getElementById('fname-error').textContent =
+              'Provide first name!'
+            document.getElementById('firstname').classList.add('invalid')
+            return
+          }
+          if (lastName.trim() === '') {
+            document.getElementById('lname-error').textContent =
+              'Provide second name!'
+
+            document.getElementById('lastname').classList.add('invalid')
+            return
+          }
+
+          if (email.trim() === '') {
+            document.getElementById('email-error').textContent =
+              'Enter your email'
+            document.getElementById('email').classList.add('invalid')
+            return
+          } else if (!isValidEmail(email)) {
+            document.getElementById('email-error').textContent =
+              'Enter a valid email!'
+
+            return
+          }
+
+          if (password.trim() === '') {
+            document.getElementById('password-error').textContent =
+              'Enter password!'
+            document.getElementById('firstname').classList.add('invalid')
+            return
+          } else if (password.length < 8) {
+            document.getElementById('password-error').textContent =
+              'Password too short!'
+            document.getElementById('firstname').classList.add('invalid')
+            return
+          }
+        })
+
+      //Check email validity
+      function isValidEmail(email) {
+        var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+        return emailRegex.test(email)
+      }
+    </script>
   </body>
 </html>
